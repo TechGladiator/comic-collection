@@ -23,5 +23,5 @@ function comicQuery(request, response) {
   }
 }
 
-module.export.home = home;
-module.export.comicQuery = comicQuery;
+module.exports.home = home;
+module.exports.comicQuery = comicQuery;
