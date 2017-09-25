@@ -1,0 +1,21 @@
+/*--- base styles ---*/
+
+/*--- table style ---*/
+
+.table {
+  margin: 0;
+}
+
+/*--- media queries ---*/
+
+@media (max-width: 767px) {
+  .card {
+    width: 50%;
+  }
+}
+
+@media (max-width: 425px) {
+  .card {
+    width: 100%;
+  }
+}
