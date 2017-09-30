@@ -15,6 +15,10 @@ body {
   background: transparent;
 }
 
+.jumbotron-heading {
+  color: white;
+}
+
 /*--- table style ---*/
 
 .table {
