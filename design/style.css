@@ -1,5 +1,15 @@
 /*--- base styles ---*/
 
+/*--- jumbotron ---*/
+
+.jumbotron {
+  background: url(../docs/images/maxresdefault.svg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
 /*--- table style ---*/
 
 .table {
