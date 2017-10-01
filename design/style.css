@@ -19,6 +19,13 @@ body {
   color: white;
 }
 
+/*--- album ---*/
+
+.album {
+  background-color: rgba(0, 0, 0, 0.57);
+  box-shadow: 0px 0px 20px 0px black;
+}
+
 /*--- table style ---*/
 
 .table {
