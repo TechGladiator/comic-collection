@@ -1,4 +1,4 @@
 module.exports = {
-  appName: 'Welcome To Comic Collection',
+  appName: 'Comic Collection',
   port: 3000
 }
