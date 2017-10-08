@@ -3,6 +3,11 @@ const config = require('./config');
 
 const app = express();
 
+// documentation route
+app.use('/doc', function(req, res, next) {
+  res.end(`Documentation https://techgladiator.github.io/comic-collection`);
+});
+
 // response when testing server
 app.use((req, res, next) => {
   res.end("Hello World!");
