@@ -7,7 +7,13 @@ const app = express();
 const publicPath = path.resolve(__dirname, './public');
 app.use(express.static(publicPath));
 
+app.set('views', './src/views')
 app.set('view engine', 'pug');
+
+// index page route
+app.get('/', function (req, res) {
+  res.render('index', { title: 'Hey', message: 'Hello there!' })
+})
 
 // documentation route
 app.use('/doc', function(req, res, next) {
