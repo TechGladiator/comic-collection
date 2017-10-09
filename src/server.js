@@ -7,6 +7,8 @@ const app = express();
 const publicPath = path.resolve(__dirname, './public');
 app.use(express.static(publicPath));
 
+app.set('view engine', 'pug');
+
 // documentation route
 app.use('/doc', function(req, res, next) {
   res.end(`Documentation https://techgladiator.github.io/comic-collection`);
