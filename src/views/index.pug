@@ -1,5 +1,43 @@
+doctype html
 html
-  head
-    title= title
-  body
-    h1= message
+	head
+		meta(charset="utf-8")
+		title= title
+		link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css")
+	body
+		h1= message
+		h2 Welcome to Comic Collection!
+		#list-container
+		script#list-template(type="text/x-handlebars-template").
+			{{#each list}}
+			<div class="row">
+			<div class="col-xs-6"><strong>{{issue}}</strong></div>
+			<div class="col-xs-6">{{coverDate}}</div>
+			</div>
+			{{/each}}
+		script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js")
+		script(src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.8/handlebars.min.js")
+		script.
+			$(document).ready(function() {
+			const data = { name: "The Incredible Hulk", volume: 1962 }
+			const greetingTemplate = '{{name}}, {{volume}} Series';
+			const greetingCompiled = Handlebars.compile(greetingTemplate);
+			const greetingRendered = greetingCompiled(data);
+			$('body h2').first().after(greetingRendered);
+			});
+		script.
+			$(document).ready(function() {
+			const data = {
+			list: [
+			{issue: '#1', coverDate: 'May, 1962'},
+			{issue: '#2', coverDate: 'July, 1962'},
+			{issue: '#3', coverDate: 'August, 1962'},
+			{issue: '#4', coverDate: 'October, 1962'},
+			{issue: '#5', coverDate: 'December, 1962'},
+			{issue: '#6', coverDate: 'January, 1963'},
+			],
+			};
+			const template = $('#list-template').html();
+			const compiled = Handlebars.compile(template);
+			$('#list-container').html(compiled(data));
+			});
