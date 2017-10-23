@@ -30,7 +30,14 @@ router.delete('/file/:fileId', function(req, res, next) {
 });
 
 router.get('/file/:fileId', function(req, res, next) {
-  res.end(`Reading file '${req.params.fileId}'`);
+  const {fileId} = req.params;
+
+  const file = FILES.find(entry => entry.id === fileId);
+  if (!file) {
+    return res.status(404).end(`Could not find file '${fileId}'`);
+  }
+
+  res.json(file);
 });
 
 module.exports = router;
