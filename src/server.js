@@ -16,7 +16,7 @@ app.set('view engine', 'pug');
 
 // index page route
 app.get('/', function (req, res) {
-  res.render('index', { title: 'Comic Collection', message: 'Hello Comic Collector!' })
+  res.render('index', { title: 'Comic Collection', message: 'Hello Comic Collector!', welcome: 'Welcome to Comic Collection!' })
 })
 
 // Start the server
