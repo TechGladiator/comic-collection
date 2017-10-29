@@ -21,3 +21,5 @@ function refreshFileList() {
       $('#list-container').html(html);
     })
 }
+
+refreshFileList();
