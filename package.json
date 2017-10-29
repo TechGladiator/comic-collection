@@ -29,6 +29,7 @@
   },
   "homepage": "https://github.com/TechGladiator/comic-collection#readme",
   "dependencies": {
+    "body-parser": "^1.18.2",
     "express": "^4.16.1",
     "pug": "^2.0.0-rc.4"
   }
