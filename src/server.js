@@ -1,3 +1,4 @@
+// src/server.js
 const path = require('path');
 const bodyParser = require('body-parser');
 
