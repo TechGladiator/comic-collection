@@ -1,5 +1,6 @@
 // src/routes/index.js
 const router = require('express').Router();
+const mongoose = require('mongoose');
 
 const FILES = [
   {series: 'The Incredible Hulk', volume: '1962', issue: '#1', coverDate: 'May, 1962', id: '0'},
@@ -15,8 +16,16 @@ router.use('/doc', function(req, res, next) {
   res.end(`Documentation https://techgladiator.github.io/comic-collection`);
 });
 
+// find files and add to response
 router.get('/file', function(req, res, next) {
-  res.json(FILES);
+  mongoose.model('File').find({}, function(err, files) {
+    if (err) {
+      console.log(err);
+      return res.status(500).json(err);
+    }
+  
+    res.json(files);
+  });
 });
 
 router.post('/file', function(req, res, next) {
