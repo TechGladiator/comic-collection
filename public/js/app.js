@@ -22,6 +22,10 @@ function refreshFileList() {
     })
 }
 
+function toggleAddFileFormVisibility() {
+  $('#form-container').toggleClass('hidden');
+}
+
 function toggleAddFileForm() {
   console.log("Baby steps...");
 }
