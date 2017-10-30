@@ -12,6 +12,9 @@ const router = require('./routes');
 // Connect to MongoDB and create/use database as configured
 mongoose.connection.openUri(`mongodb://${config.db.host}/${config.db.dbName}`);
 
+// Import all models
+require('./models/file.model.js');
+
 const app = express();
 const publicPath = path.resolve(__dirname, '../public');
 app.use(express.static(publicPath));
