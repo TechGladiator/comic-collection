@@ -31,4 +31,12 @@ function toggleAddFileForm() {
   toggleAddFileFormVisibility();
 }
 
+function submitFileForm() {
+  console.log("You clicked 'submit'. Congratulations.");
+}
+
+function cancelFileForm() {
+  toggleAddFileFormVisibility();
+}
+
 refreshFileList();
