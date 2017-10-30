@@ -7,3 +7,34 @@ body {
   -o-background-size: cover;
   background-size: cover;
 }
+
+/*--- masthead, cover, and footer ---*/
+.masthead-brand,
+.nav-masthead .nav-link,
+.cover-heading,
+.lead,
+.mastfoot {
+  color: #ffd2b6;
+  border-bottom: .25rem solid transparent;
+  text-shadow: 0 0 10px black;
+}
+.nav-masthead .nav-link:hover {
+  border-bottom-color: #ffd2b6;
+}
+.lead,
+.mastfoot {
+  font-weight: bold;
+}
+
+/*--- Coming Soon button ---*/
+.cover .btn-lg {
+  background: #ffb76b;
+  background: -moz-linear-gradient(-45deg, #ffb76b 0%, #ffa73d 43%, #ff7c00 55%, #ff7f04 100%);
+  background: -webkit-linear-gradient(-45deg, #ffb76b 0%,#ffa73d 43%,#ff7c00 55%,#ff7f04 100%);
+  background: linear-gradient(135deg, #ffb76b 0%,#ffa73d 43%,#ff7c00 55%,#ff7f04 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffb76b', endColorstr='#ff7f04',GradientType=1 );
+  box-shadow: inset 0px 0px 20px 0px black;
+  color: #5c291b;
+  text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.67);
+  border: transparent;
+}
