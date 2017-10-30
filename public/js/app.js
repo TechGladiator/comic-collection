@@ -33,6 +33,19 @@ function toggleAddFileForm() {
 
 function submitFileForm() {
   console.log("You clicked 'submit'. Congratulations.");
+  
+   const series = $('#file-series').val();
+   const volume = $('#file-volume').val();
+   const issue = $('#file-issue').val();
+   const coverDate = $('#file-coverDate').val();
+   const fileData = {
+     series: series,
+     volume: volume,
+     issue: issue,
+     coverDate: coverDate,
+   };
+  
+   console.log("Your file data", fileData);
 }
 
 function cancelFileForm() {
