@@ -28,6 +28,7 @@ function toggleAddFileFormVisibility() {
 
 function toggleAddFileForm() {
   console.log("Baby steps...");
+  toggleAddFileFormVisibility();
 }
 
 refreshFileList();
