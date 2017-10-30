@@ -22,4 +22,8 @@ function refreshFileList() {
     })
 }
 
+function toggleAddFileForm() {
+  console.log("Baby steps...");
+}
+
 refreshFileList();
