@@ -30,12 +30,34 @@ function refreshFileList() {
 
 refreshFileList();
 
+// clear file form or set with data to be edited
+function setFormData(data) {
+  // set as file data or empty
+  data = data || {};
+
+  const file = {
+    series: data.series || '',
+    volume: data.volume || '',
+    issue: data.issue || '',
+    coverDate: data.coverDate || '',
+    _id: data._id || '',
+  };
+
+  // populate with data to edit if it exists
+  $('#file-series').val(file.series);
+  $('#file-volume').val(file.volume);
+  $('#file-issue').val(file.issue);
+  $('#file-coverDate').val(file.coverDate);
+  $('#file-id').val(file._id);
+}
+
 // toggle/cancel form
 function toggleAddFileFormVisibility() {
   $('#form-container').toggleClass('hidden');
 }
 
 function toggleAddFileForm() {
+  setFormData({});
   toggleAddFileFormVisibility();
 }
 
@@ -47,20 +69,13 @@ function cancelFileForm() {
 function editFileClick(id) {
   const file = window.fileList.find(file => file._id === id);
   if (file) {
-    // open form and populate with data to edit
-    $('#file-series').val(file.series);
-    $('#file-volume').val(file.volume);
-    $('#file-issue').val(file.issue);
-    $('#file-coverDate').val(file.coverDate);
-    $('#file-id').val(file._id);
+    setFormData(file);
     toggleAddFileFormVisibility();
   }
 }
 
 // collect and POST data
 function submitFileForm() {
-  console.log("You clicked 'submit'. Congratulations.");
-
   // first collect the data
   const series = $('#file-series').val();
   const volume = $('#file-volume').val();
