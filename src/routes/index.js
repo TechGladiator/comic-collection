@@ -95,14 +95,20 @@ router.delete('/file/:fileId', function(req, res, next) {
 });
 
 router.get('/file/:fileId', function(req, res, next) {
-  const {fileId} = req.params;
+  const File = mongoose.model('File');
+  const fileId = req.params.fileId;
 
-  const file = FILES.find(entry => entry.id === fileId);
-  if (!file) {
-    return res.status(404).end(`Could not find file '${fileId}'`);
-  }
+  File.findById(fileId, function(err, file) {
+    if (err) {
+      console.error(err);
+      return res.status(500).json(err);
+    }
+    if (!file) {
+      return res.status(404).end(`Could not find file '${fileId}'`);
+    }
+    res.json(file);
+  })
 
-  res.json(file);
 });
 
 module.exports = router;
