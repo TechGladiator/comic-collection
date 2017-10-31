@@ -77,21 +77,28 @@ function editFileClick(id) {
 // collect and POST data
 function submitFileForm() {
   // first collect the data
-  const series = $('#file-series').val();
-  const volume = $('#file-volume').val();
-  const issue = $('#file-issue').val();
-  const coverDate = $('#file-coverDate').val();
   const fileData = {
-    series: series,
-    volume: volume,
-    issue: issue,
-    coverDate: coverDate,
+    series: $('#file-series').val(),
+    volume: $('#file-volume').val(),
+    issue: $('#file-issue').val(),
+    coverDate: $('#file-coverDate').val(),
+    _id: $('#file-id').val(),
   };
 
-  // then POST the data
+  // set submit to POST or PUT
+  let method, url;
+  if (fileData._id) {
+    method = 'PUT';
+    url = '/api/file/' + fileData._id;
+  } else {
+    method = 'POST';
+    url = '/api/file';
+  }
+
+  // then send the data
   $.ajax({
-  type: "POST",
-  url: '/api/file',
+  type: method,
+  url: url,
   data: JSON.stringify(fileData),
   dataType: 'json',
   contentType : 'application/json',
