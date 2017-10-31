@@ -25,7 +25,7 @@ function refreshFileList() {
 
 refreshFileList();
 
-// toggle form
+// toggle/cancel form
 function toggleAddFileFormVisibility() {
   $('#form-container').toggleClass('hidden');
 }
@@ -37,6 +37,11 @@ function toggleAddFileForm() {
 
 function cancelFileForm() {
   toggleAddFileFormVisibility();
+}
+
+// edit list item
+function editFileClick() {
+  console.log("I will edit for you!");
 }
 
 // collect and POST data
