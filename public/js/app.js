@@ -74,6 +74,25 @@ function editFileClick(id) {
   }
 }
 
+// send delete list item
+function deleteFileClick(id) {
+  if (confirm("Are you sure?")) {
+    $.ajax({
+      type: 'DELETE',
+      url: '/api/file/' + id,
+      dataType: 'json',
+      contentType: 'application/json',
+    })
+      .done(function(response) {
+        console.log("File", id, "is DOOMED!!!!!!");
+        refreshFileList();
+      })
+      .fail(function(error) {
+        console.error("I'm not dead yet!", error);
+      })
+  }
+}
+
 // collect and POST data
 function submitFileForm() {
   // first collect the data
