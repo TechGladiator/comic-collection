@@ -40,8 +40,8 @@ function cancelFileForm() {
 }
 
 // edit list item
-function editFileClick() {
-  console.log("I will edit for you!");
+function editFileClick(id) {
+  console.log("I will edit for you", id);
 }
 
 // collect and POST data
