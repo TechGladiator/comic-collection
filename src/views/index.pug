@@ -32,7 +32,7 @@ html
         <li class="list-group-item">
           <strong>{{series}}:</strong> V{{volume}} - \#{{issue}} - {{coverDate}}
           <span class="pull-right">
-            <button type="button" class="btn btn-xs btn-default" onclick="editFileClick()">Edit</button>
+            <button type="button" class="btn btn-xs btn-default" onclick="editFileClick('{{_id}}')">Edit</button>
             </span>
         </li>
         {{/each}}
