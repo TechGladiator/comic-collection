@@ -18,7 +18,7 @@ router.use('/doc', function(req, res, next) {
 
 // find files and add to response
 router.get('/file', function(req, res, next) {
-  mongoose.model('File').find({}, function(err, files) {
+  mongoose.model('File').find({deleted: {$ne: true}}, function(err, files) {
     if (err) {
       console.log(err);
       return res.status(500).json(err);
