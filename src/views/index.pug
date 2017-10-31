@@ -14,23 +14,23 @@ html
         form#add-file-form
           .form-group
             label(for="file-series") Series
-            input#file-series.form-control(type="text", placeholder="Series")
+            input#file-series.form-control(type="text", placeholder="Action Comics")
           .form-group
             label(for="file-volume") Volume
-            input#file-volume.form-control(type="text", placeholder="Volume")
+            input#file-volume.form-control(type="number", placeholder="1938")
           .form-group
-            label(for="file-issue") Issue
-            input#file-issue.form-control(type="number", placeholder="Issue")
+            label(for="file-issue") Issue #
+            input#file-issue.form-control(type="number", placeholder="1")
           .form-group
-            label(for="file-coverDate") coverDate
-            input#file-coverDate.form-control(type="text", placeholder="coverDate")
+            label(for="file-coverDate") Cover Date
+            input#file-coverDate.form-control(type="text", placeholder="06/1938")
           button.btn.btn-success(type="button", onclick="submitFileForm()") Submit
           button.btn.btn-link(type="button", onclick="cancelFileForm()") cancel
     script#list-template(type="text/x-handlebars-template").
       <ul class="list-group">
         {{#each files}}
         <li class="list-group-item">
-          <strong>{{series}}:</strong> {{volume}} - # {{issue}} - {{coverDate}}
+          <strong>{{series}}:</strong> V{{volume}} - \#{{issue}} - {{coverDate}}
         </li>
         {{/each}}
       </ul>
