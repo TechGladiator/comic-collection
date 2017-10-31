@@ -31,6 +31,9 @@ html
         {{#each files}}
         <li class="list-group-item">
           <strong>{{series}}:</strong> V{{volume}} - \#{{issue}} - {{coverDate}}
+          <span class="pull-right">
+            <button type="button" class="btn btn-xs btn-default">Edit</button>
+            </span>
         </li>
         {{/each}}
       </ul>
