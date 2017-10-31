@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const FileSchema = new mongoose.Schema({
   series: String,
   volume: String,
-  issue: Number,
+  issue: String,
   coverDate: String,
   created_at: { type: Date, default: Date.now },
 });
