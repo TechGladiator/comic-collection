@@ -6,7 +6,7 @@ function getFiles() {
     return res;
   })
   .fail(err => {
-    console.log("Error in getFiles()", err);
+    console.error("Error in getFiles()", err);
     throw err;
   });
 }
@@ -128,7 +128,7 @@ function submitFileForm() {
       toggleAddFileFormVisibility();
     })
     .fail(function(error) {
-      console.log("Failures at posting, we are", error);
+      console.error("Failures at posting, we are", error);
     });
   
   console.log("Your file data", fileData);
