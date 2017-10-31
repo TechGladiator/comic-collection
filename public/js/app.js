@@ -52,6 +52,7 @@ function editFileClick(id) {
     $('#file-volume').val(file.volume);
     $('#file-issue').val(file.issue);
     $('#file-coverDate').val(file.coverDate);
+    $('#file-id').val(file._id);
     toggleAddFileFormVisibility();
   }
 }
