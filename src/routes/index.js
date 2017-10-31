@@ -48,18 +48,35 @@ router.post('/file', function(req, res, next) {
   });
 });
 
-router.put('/file/:fileId', function(req, res, next) {
-  const {fileId} = req.params;
-  const file = FILES.find(entry => entry.id === fileId);
-  if (!file) {
-    return res.status(404).end(`Could not find file '${fileId}'`);
-  }
 
-  file.series = req.body.series;
-  file.volume = req.body.volume;
-  file.issue = req.body.issue;
-  file.coverDate = req.body.coverDate;
-  res.json(file);
+// update existing file with edited data
+router.put('/file/:fileId', function(req, res, next) {
+  const File = mongoose.model('File');
+  const fileId = req.params.fileId;
+
+  File.findById(fileId, function(err, file) {
+    if (err) {
+      console.error(err);
+      return res.status(500).json(err);
+    }
+    if (!file) {
+      return res.status(404).end(`Could not find file '${fileId}'`);
+    }
+    
+    file.series = req.body.series;
+    file.volume = req.body.volume;
+    file.issue = req.body.issue;
+    file.coverDate = req.body.coverDate;
+
+    file.save(function(err, savedFile) {
+      if (err) {
+        console.error(err);
+        return res.status(500).json(err);
+      }
+      res.json(savedFile);
+    })
+
+  })
 });
 
 router.delete('/file/:fileId', function(req, res, next) {
