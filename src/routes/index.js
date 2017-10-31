@@ -2,14 +2,7 @@
 const router = require('express').Router();
 const mongoose = require('mongoose');
 
-const FILES = [
-  {series: 'The Incredible Hulk', volume: '1962', issue: '#1', coverDate: 'May, 1962', id: '0'},
-  {series: 'The Incredible Hulk', volume: '1962', issue: '#2', coverDate: 'July, 1962', id: '1'},
-  {series: 'The Incredible Hulk', volume: '1962', issue: '#3', coverDate: 'August, 1962', id: '2'},
-  {series: 'The Incredible Hulk', volume: '1962', issue: '#4', coverDate: 'October, 1962', id: '3'},
-  {series: 'The Incredible Hulk', volume: '1962', issue: '#5', coverDate: 'December, 1962', id: '4'},
-  {series: 'The Incredible Hulk', volume: '1962', issue: '#6', coverDate: 'January, 1963', id: '5'}
-];
+mongoose.Promise = global.Promise;
 
 // documentation route
 router.use('/doc', function(req, res, next) {
