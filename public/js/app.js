@@ -47,9 +47,12 @@ function cancelFileForm() {
 function editFileClick(id) {
   const file = window.fileList.find(file => file._id === id);
   if (file) {
-    console.log("I will edit you!", file);
-  } else {
-    console.log("Aw shucks, I didn't find", id)
+    // open form and populate with data to edit
+    $('#file-series').val(file.series);
+    $('#file-volume').val(file.volume);
+    $('#file-issue').val(file.issue);
+    $('#file-coverDate').val(file.coverDate);
+    toggleAddFileFormVisibility();
   }
 }
 
