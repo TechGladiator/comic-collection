@@ -28,13 +28,24 @@ router.get('/file', function(req, res, next) {
   });
 });
 
+// collect POST data from form and create new file
 router.post('/file', function(req, res, next) {
-  const newId = '' + FILES.length;
-  const data = req.body;
-  data.id = newId;
+  const File = mongoose.model('File');
+  const fileData = {
+    series: req.body.series,
+    volume: req.body.volume,
+    issue: req.body.issue,
+    coverDate: req.body.coverDate,
+  };
 
-  FILES.push(data);
-  res.status(201).json(data);
+  File.create(fileData, function(err, newFile) {
+    if (err) {
+      console.log(err);
+      return res.status(500).json(err);
+    }
+
+    res.json(newFile);
+  });
 });
 
 router.put('/file/:fileId', function(req, res, next) {
