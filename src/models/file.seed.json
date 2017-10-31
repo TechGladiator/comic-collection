@@ -1,8 +1,8 @@
 [
-  {"series": "The Incredible Hulk", "volume": "1962", "issue": "1", "coverDate": "05/1962"},
-  {"series": "The Incredible Hulk", "volume": "1962", "issue": "2", "coverDate": "07/1962"},
-  {"series": "The Incredible Hulk", "volume": "1962", "issue": "3", "coverDate": "09/1962"},
-  {"series": "The Incredible Hulk", "volume": "1962", "issue": "4", "coverDate": "11/1962"},
-  {"series": "The Incredible Hulk", "volume": "1962", "issue": "5", "coverDate": "01/1963"},
-  {"series": "The Incredible Hulk", "volume": "1962", "issue": "6", "coverDate": "03/1963"}
+  {"series": "Incredible Hulk", "volume": "1962", "issue": "1", "coverDate": "05/1962"},
+  {"series": "Incredible Hulk", "volume": "1962", "issue": "2", "coverDate": "07/1962"},
+  {"series": "Incredible Hulk", "volume": "1962", "issue": "3", "coverDate": "09/1962"},
+  {"series": "Incredible Hulk", "volume": "1962", "issue": "4", "coverDate": "11/1962"},
+  {"series": "Incredible Hulk", "volume": "1962", "issue": "5", "coverDate": "01/1963"},
+  {"series": "Incredible Hulk", "volume": "1962", "issue": "6", "coverDate": "03/1963"}
 ]
