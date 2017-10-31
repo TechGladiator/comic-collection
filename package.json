@@ -1,0 +1,37 @@
+{
+  "name": "comic-collection",
+  "version": "0.0.0",
+  "description": "A Database for Comic Collectors",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TechGladiator/comic-collection.git"
+  },
+  "keywords": [
+    "techgladiator",
+    "comic",
+    "comics",
+    "comic",
+    "book",
+    "comic",
+    "books",
+    "collection",
+    "collections",
+    "collector"
+  ],
+  "author": "John Stratton",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TechGladiator/comic-collection/issues"
+  },
+  "homepage": "https://github.com/TechGladiator/comic-collection#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.1",
+    "mongoose": "^4.12.4",
+    "pug": "^2.0.0-rc.4"
+  }
+}

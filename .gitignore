@@ -38,5 +38,4 @@ Thumbs.db
 
 # NPM install generated files #
 ###############################
-/package-lock.json
 /node_modules/
