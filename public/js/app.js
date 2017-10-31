@@ -1,4 +1,4 @@
-// GET the data and refresh list
+// GET file data
 function getFiles() {
   return $.ajax('/api/file')
   .then(res => {
@@ -11,12 +11,17 @@ function getFiles() {
   });
 }
 
+// reload file list on page
 function refreshFileList() {
   const template = $('#list-template').html();
   const compiledTemplate = Handlebars.compile(template);
   
   getFiles()
   .then(files => {
+
+    // save file array to global window object
+    window.fileList = files;
+
     const data = {files: files};
     const html = compiledTemplate(data);
     $('#list-container').html(html);
@@ -31,7 +36,6 @@ function toggleAddFileFormVisibility() {
 }
 
 function toggleAddFileForm() {
-  console.log("Baby steps...");
   toggleAddFileFormVisibility();
 }
 
@@ -41,7 +45,12 @@ function cancelFileForm() {
 
 // edit list item
 function editFileClick(id) {
-  console.log("I will edit for you", id);
+  const file = window.fileList.find(file => file._id === id);
+  if (file) {
+    console.log("I will edit you!", file);
+  } else {
+    console.log("Aw shucks, I didn't find", id)
+  }
 }
 
 // collect and POST data
