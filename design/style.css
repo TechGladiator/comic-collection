@@ -2,6 +2,7 @@
 
 html,
 body {
+  min-height: auto;
   background: url(../docs/images/maxresdefault.svg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -28,6 +29,7 @@ body {
 /*--- album ---*/
 
 .album {
+  min-height: auto;
   background-color: rgba(0, 0, 0, 0.57);
   box-shadow: 0px 0px 20px 0px black;
 }
