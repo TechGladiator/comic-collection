@@ -2,6 +2,7 @@
 
 html,
 body {
+  min-width: 320px;
   min-height: auto;
   background: url(../docs/images/comic-panel-background.svg) no-repeat center center fixed;
   -webkit-background-size: cover;
