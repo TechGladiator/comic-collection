@@ -1,7 +1,7 @@
 /*--- base styles ---*/
 
 html {
-  background: url(../docs/images/comic-panel-background.svg) no-repeat center center fixed;
+  background: url(/img/comic-panel-background.svg) no-repeat center center fixed;
   background-size: cover;
 }
 
