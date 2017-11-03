@@ -14,12 +14,12 @@ body {
 .cover-heading,
 .lead,
 .mastfoot {
-  color: #ffd2b6;
+  color: #fff;
   border-bottom: .25rem solid transparent;
   text-shadow: 0 0 10px black;
 }
 .nav-masthead .nav-link:hover {
-  border-bottom-color: #ffd2b6;
+  border-bottom-color: #fff;
 }
 .lead,
 .mastfoot {
