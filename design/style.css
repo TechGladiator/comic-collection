@@ -66,6 +66,10 @@ body {
   background: #ffb76b;
 }
 
+.btn-block {
+  margin-top: .5rem;
+}
+
 
 /*--- album ---*/
 
