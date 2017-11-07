@@ -54,7 +54,6 @@ body {
   background: #ffb76b;
   background: linear-gradient(135deg, #ffb76b 0%, #ffa73d 43%, #ff7c00 55%, #ff7f04 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffb76b', endColorstr='#ff7f04', GradientType=1);
-  border-radius: .25rem;
 }
 
 .btn-primary:focus {
@@ -136,6 +135,16 @@ footer p {
 @media (max-width: 767px) {
   .card {
     width: 50%;
+  }
+}
+
+@media (max-width: 575px) {
+  body {
+    margin-top: 86px;
+  }
+  .navbar-brand,
+  .navbar .btn-group {
+    margin: auto;
   }
 }
 
