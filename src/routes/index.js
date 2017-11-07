@@ -101,9 +101,6 @@ router.get('/file/:fileId', function(req, res, next) {
     if (!file) {
       return res.status(404).end(`Could not find file '${fileId}'`);
     }
-    if (file.deleted = true) {
-      return res.status(404).end(`Could not find file '${fileId}'`);
-    }
     res.json(file);
   })
 
