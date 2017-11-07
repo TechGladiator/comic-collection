@@ -15,7 +15,6 @@ body {
 
 .modal-title,
 .form-group,
-.jumbotron-heading,
 .top,
 .btn-link {
   font-weight: bold;
@@ -39,15 +38,21 @@ body {
   color: inherit;
 }
 
+.btn-primary,
+.btn-success,
+.btn-danger {
+  -webkit-box-shadow: inset 0px 0px 10px 0px black;
+  box-shadow: inset 0px 0px 10px 0px black;
+  color: #5c291b;
+  text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.67);
+  border-radius: 1rem;
+  border: transparent;
+}
+
 .btn-primary {
   background: #ffb76b;
   background: linear-gradient(135deg, #ffb76b 0%, #ffa73d 43%, #ff7c00 55%, #ff7f04 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffb76b', endColorstr='#ff7f04', GradientType=1);
-  -webkit-box-shadow: inset 0px 0px 20px 0px black;
-  box-shadow: inset 0px 0px 20px 0px black;
-  color: #5c291b;
-  text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.67);
-  border: transparent;
 }
 
 .btn-primary:focus {
@@ -59,15 +64,15 @@ body {
   background: #ffb76b;
 }
 
-.btn-success {
-  background: #8fc800;
-  background: linear-gradient(135deg, #8fc800 0%, #8fc800 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8fc800', endColorstr='#8fc800', GradientType=1);
-  -webkit-box-shadow: inset 0px 0px 20px 0px black;
-  box-shadow: inset 0px 0px 20px 0px black;
-  color: #5c291b;
-  text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.67);
-  border: transparent;
+.btn-block {
+  margin-top: .5rem;
+}
+
+
+/*--- navbar ---*/
+
+.navbar-brand {
+  font-weight: bold;
 }
 
 
@@ -136,6 +141,16 @@ footer p {
 @media (max-width: 767px) {
   .card {
     width: 50%;
+  }
+}
+
+@media (max-width: 575px) {
+  body {
+    margin-top: 86px;
+  }
+  .navbar-brand,
+  .navbar .btn-group {
+    margin: auto;
   }
 }
 
