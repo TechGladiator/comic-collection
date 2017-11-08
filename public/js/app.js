@@ -65,7 +65,7 @@ function editFileClick(id) {
 
 // send delete list item
 function deleteFileClick(id) {
-  if (confirm("Are you sure?")) {
+  if (window.confirm("Are you sure?")) {
     $.ajax({
       type: 'DELETE',
       url: '/api/file/' + id,
