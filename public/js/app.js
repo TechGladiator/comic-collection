@@ -51,18 +51,8 @@ function setFormData(data) {
   $('#file-id').val(file._id);
 }
 
-// toggle/cancel form
-function toggleAddFileFormVisibility() {
-  $('#form-container').toggleClass('hidden');
-}
-
 function toggleAddFileForm() {
   setFormData({});
-  toggleAddFileFormVisibility();
-}
-
-function cancelFileForm() {
-  toggleAddFileFormVisibility();
 }
 
 // edit list item
@@ -70,13 +60,12 @@ function editFileClick(id) {
   const file = window.fileList.find(file => file._id === id);
   if (file) {
     setFormData(file);
-    toggleAddFileFormVisibility();
   }
 }
 
 // send delete list item
 function deleteFileClick(id) {
-  if (confirm("Are you sure?")) {
+  if (window.confirm("Are you sure?")) {
     $.ajax({
       type: 'DELETE',
       url: '/api/file/' + id,
@@ -125,7 +114,6 @@ function submitFileForm() {
     .done(function(response) {
       console.log("We have posted the data");
       refreshFileList();
-      toggleAddFileFormVisibility();
     })
     .fail(function(error) {
       console.error("Failures at posting, we are", error);

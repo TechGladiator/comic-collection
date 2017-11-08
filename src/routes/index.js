@@ -4,11 +4,6 @@ const mongoose = require('mongoose');
 
 mongoose.Promise = global.Promise;
 
-// documentation route
-router.use('/doc', function(req, res, next) {
-  res.end(`Documentation https://techgladiator.github.io/comic-collection`);
-});
-
 // find files and add to response
 router.get('/file', function(req, res, next) {
   mongoose.model('File').find({deleted: {$ne: true}}, function(err, files) {
@@ -104,9 +99,6 @@ router.get('/file/:fileId', function(req, res, next) {
       return res.status(500).json(err);
     }
     if (!file) {
-      return res.status(404).end(`Could not find file '${fileId}'`);
-    }
-    if (file.deleted = true) {
       return res.status(404).end(`Could not find file '${fileId}'`);
     }
     res.json(file);
