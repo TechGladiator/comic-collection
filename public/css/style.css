@@ -126,6 +126,9 @@ body {
   overflow: auto;
 }
 
+.invisible {
+  position: absolute;
+}
 
 /*--- table style ---*/
 
