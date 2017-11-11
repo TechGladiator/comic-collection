@@ -121,3 +121,8 @@ function submitFileForm() {
   
   console.log("Your file data", fileData);
 }
+
+// toggle visibility of 'edit' and 'delete' buttons
+function toggleEdit() {
+  $('.edit-mode').toggleClass("invisible");
+}
