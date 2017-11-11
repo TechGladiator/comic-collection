@@ -110,7 +110,7 @@ body {
   padding: .75rem;
   margin-bottom: 2rem;
   border: 0;
-  height: 14.56rem;
+  height: auto;
 }
 
 .card>img {
