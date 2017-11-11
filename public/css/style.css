@@ -97,6 +97,7 @@ body {
   padding: .75rem;
   margin-bottom: 2rem;
   border: 0;
+  height: 14.56rem;
 }
 
 .card>img {
@@ -105,6 +106,11 @@ body {
 
 .card-text {
   font-size: 85%;
+}
+
+.border {
+  height: 10.5rem;
+  overflow: auto;
 }
 
 
