@@ -67,6 +67,7 @@ router.put('/file/:fileId', function(req, res, next) {
   })
 });
 
+// soft delete file by setting deleted to true
 router.delete('/file/:fileId', function(req, res, next) {
   const File = mongoose.model('File');
   const fileId = req.params.fileId;
@@ -89,6 +90,7 @@ router.delete('/file/:fileId', function(req, res, next) {
   })
 });
 
+// GET file by id - not used in app yet
 router.get('/file/:fileId', function(req, res, next) {
   const File = mongoose.model('File');
   const fileId = req.params.fileId;
