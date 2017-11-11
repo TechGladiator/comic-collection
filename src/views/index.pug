@@ -1,44 +1,5 @@
-doctype html
-html
-  head
-    meta(charset="utf-8")
-    title= title
-    link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css")
-  body
-    .container
-      h1= message
-      h2= welcome
-      #list-container
-      button#add-file-button.btn.btn-primary(onclick="toggleAddFileForm()") Add File
-      #form-container.panel.hidden
-        form#add-file-form
-          input#file-id(type="hidden", value="")
-          .form-group
-            label(for="file-series") Series
-            input#file-series.form-control(type="text", placeholder="Action Comics")
-          .form-group
-            label(for="file-volume") Volume
-            input#file-volume.form-control(type="number", placeholder="1938")
-          .form-group
-            label(for="file-issue") Issue #
-            input#file-issue.form-control(type="number", placeholder="1")
-          .form-group
-            label(for="file-coverDate") Cover Date
-            input#file-coverDate.form-control(type="text", placeholder="06/1938")
-          button.btn.btn-success(type="button", onclick="submitFileForm()") Submit
-          button.btn.btn-link(type="button", onclick="cancelFileForm()") cancel
-    script#list-template(type="text/x-handlebars-template").
-      <ul class="list-group">
-        {{#each files}}
-        <li class="list-group-item">
-          <strong>{{series}}:</strong> V{{volume}} - \#{{issue}} - {{coverDate}}
-          <span class="pull-right">
-            <button type="button" class="btn btn-xs btn-default" onclick="editFileClick('{{_id}}')">Edit</button>
-            <button type="button" class="btn btn-xs btn-danger" onclick="deleteFileClick('{{_id}}')">Delete</button>
-            </span>
-        </li>
-        {{/each}}
-      </ul>
-    script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js")
-    script(src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.8/handlebars.min.js")
-    script(src="/js/app.js")
+extends layout
+
+block main
+  .album
+    .container#list-container
