@@ -1,0 +1,5 @@
+{
+  "env": {
+    "MONGO_URL": "@comic-collection-mongo-url"
+  }
+}
