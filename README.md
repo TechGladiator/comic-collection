@@ -15,10 +15,19 @@ Clone the repository, or download the [Latest Release](https://github.com/TechGl
 ```
 $ npm install
 ```
-and
+
+then
+
+```
+$ mongod
+```
+
+and finally
+
 ```
 $ npm start
 ```
+
 By default, simply opening your browser and navigating to http://localhost:3000/ will open Comic Collection once it is running.
 ## Using Comic Collection
 
