@@ -29,6 +29,11 @@ app.get('/', function (req, res) {
   res.render('index')
 })
 
+//recently deleted items
+app.get('/deleted', function (req, res) {
+  res.render('deleted')
+})
+
 // Start the server
 app.listen(config.port, function() {
   console.log(`${config.appName} is listening on port ${config.port}`);

@@ -16,6 +16,18 @@ router.get('/file', function(req, res, next) {
   });
 });
 
+// find files and add to response
+router.get('/deleted', function(req, res, next) {
+  mongoose.model('File').find({deleted: {$eq: true}}, function(err, files) {
+    if (err) {
+      console.error(err);
+      return res.status(500).json(err);
+    }
+  
+    res.json(files);
+  });
+});
+
 // collect POST data from form and create new file
 router.post('/file', function(req, res, next) {
   const File = mongoose.model('File');

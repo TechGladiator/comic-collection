@@ -11,6 +11,19 @@ function getFiles() {
   });
 }
 
+// GET deleted data
+function getDeleted() {
+  return $.ajax('/api/deleted')
+  .then(res => {
+    console.log("Results from getDeleted()", res);
+    return res;
+  })
+  .fail(err => {
+    console.error("Error in getDeleted()", err);
+    throw err;
+  });
+}
+
 // reload file list on page
 function refreshFileList() {
   const template = $('#list-template').html();
@@ -29,6 +42,25 @@ function refreshFileList() {
 }
 
 refreshFileList();
+
+// reload deleted list on page
+function refreshDeletedList() {
+  const template = $('#list-template').html();
+  const compiledTemplate = Handlebars.compile(template);
+  
+  getDeleted()
+  .then(files => {
+
+    // save file array to global window object
+    window.fileList = files;
+
+    const data = {files: files};
+    const html = compiledTemplate(data);
+    $('#deleted-container').html(html);
+  })
+}
+
+refreshDeletedList();
 
 // clear file form or set with data to be edited
 function setFormData(data) {
