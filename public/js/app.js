@@ -1,11 +1,56 @@
+"use strict";
+
+// https://tc39.github.io/ecma262/#sec-array.prototype.find
+if (!Array.prototype.find) {
+  Object.defineProperty(Array.prototype, 'find', {
+    value: function(predicate) {
+     // 1. Let O be ? ToObject(this value).
+      if (this == null) {
+        throw new TypeError('"this" is null or not defined');
+      }
+
+      var o = Object(this);
+
+      // 2. Let len be ? ToLength(? Get(O, "length")).
+      var len = o.length >>> 0;
+
+      // 3. If IsCallable(predicate) is false, throw a TypeError exception.
+      if (typeof predicate !== 'function') {
+        throw new TypeError('predicate must be a function');
+      }
+
+      // 4. If thisArg was supplied, let T be thisArg; else let T be undefined.
+      var thisArg = arguments[1];
+
+      // 5. Let k be 0.
+      var k = 0;
+
+      // 6. Repeat, while k < len
+      while (k < len) {
+        // a. Let Pk be ! ToString(k).
+        // b. Let kValue be ? Get(O, Pk).
+        // c. Let testResult be ToBoolean(? Call(predicate, T, « kValue, k, O »)).
+        // d. If testResult is true, return kValue.
+        var kValue = o[k];
+        if (predicate.call(thisArg, kValue, k, o)) {
+          return kValue;
+        }
+        // e. Increase k by 1.
+        k++;
+      }
+
+      // 7. Return undefined.
+      return undefined;
+    }
+  });
+}
+
 // GET file data
 function getFiles() {
-  return $.ajax('/api/file')
-  .then(res => {
+  return $.ajax('/api/file').then(function (res) {
     console.log("Results from getFiles()", res);
     return res;
-  })
-  .fail(err => {
+  }).fail(function (err) {
     console.error("Error in getFiles()", err);
     throw err;
   });
@@ -13,19 +58,18 @@ function getFiles() {
 
 // reload file list on page
 function refreshFileList() {
-  const template = $('#list-template').html();
-  const compiledTemplate = Handlebars.compile(template);
-  
-  getFiles()
-  .then(files => {
+  var template = $('#list-template').html();
+  var compiledTemplate = Handlebars.compile(template);
+
+  getFiles().then(function (files) {
 
     // save file array to global window object
     window.fileList = files;
 
-    const data = {files: files};
-    const html = compiledTemplate(data);
+    var data = { files: files };
+    var html = compiledTemplate(data);
     $('#list-container').html(html);
-  })
+  });
 }
 
 refreshFileList();
@@ -35,12 +79,12 @@ function setFormData(data) {
   // set as file data or empty
   data = data || {};
 
-  const file = {
+  var file = {
     series: data.series || '',
     volume: data.volume || '',
     issue: data.issue || '',
     coverDate: data.coverDate || '',
-    _id: data._id || '',
+    _id: data._id || ''
   };
 
   // populate with data to edit if it exists
@@ -57,7 +101,9 @@ function toggleAddFileForm() {
 
 // edit list item
 function editFileClick(id) {
-  const file = window.fileList.find(file => file._id === id);
+  var file = window.fileList.find(function (file) {
+    return file._id === id;
+  });
   if (file) {
     setFormData(file);
   }
@@ -70,31 +116,30 @@ function deleteFileClick(id) {
       type: 'DELETE',
       url: '/api/file/' + id,
       dataType: 'json',
-      contentType: 'application/json',
-    })
-      .done(function(response) {
-        console.log("File", id, "is DOOMED!!!!!!");
-        refreshFileList();
-      })
-      .fail(function(error) {
-        console.error("I'm not dead yet!", error);
-      })
+      contentType: 'application/json'
+    }).done(function (response) {
+      console.log("File", id, "is DOOMED!!!!!!");
+      refreshFileList();
+    }).fail(function (error) {
+      console.error("I'm not dead yet!", error);
+    });
   }
 }
 
 // collect and POST data
 function submitFileForm() {
   // first collect the data
-  const fileData = {
+  var fileData = {
     series: $('#file-series').val(),
     volume: $('#file-volume').val(),
     issue: $('#file-issue').val(),
     coverDate: $('#file-coverDate').val(),
-    _id: $('#file-id').val(),
+    _id: $('#file-id').val()
   };
 
   // set submit to POST or PUT
-  let method, url;
+  var method = void 0,
+      url = void 0;
   if (fileData._id) {
     method = 'PUT';
     url = '/api/file/' + fileData._id;
@@ -105,20 +150,18 @@ function submitFileForm() {
 
   // then send the data
   $.ajax({
-  type: method,
-  url: url,
-  data: JSON.stringify(fileData),
-  dataType: 'json',
-  contentType : 'application/json',
-  })
-    .done(function(response) {
-      console.log("We have posted the data");
-      refreshFileList();
-    })
-    .fail(function(error) {
-      console.error("Failures at posting, we are", error);
-    });
-  
+    type: method,
+    url: url,
+    data: JSON.stringify(fileData),
+    dataType: 'json',
+    contentType: 'application/json'
+  }).done(function (response) {
+    console.log("We have posted the data");
+    refreshFileList();
+  }).fail(function (error) {
+    console.error("Failures at posting, we are", error);
+  });
+
   console.log("Your file data", fileData);
 }
 
