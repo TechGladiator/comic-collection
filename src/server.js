@@ -21,13 +21,7 @@ app.use(express.static(publicPath));
 app.use(bodyParser.json());
 app.use('/api', router);
 
-app.set('views', './src/views')
 app.set('view engine', 'pug');
-
-// index page route
-app.get('/', function (req, res) {
-  res.render('index')
-})
 
 // Start the server
 app.listen(config.port, function() {
