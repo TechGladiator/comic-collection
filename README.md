@@ -2,7 +2,7 @@
 
 ## A database for comic book collectors
 
-### [Live Demo](https://comic-collection-pfszdobsom.now.sh/)
+### [Live Demo](https://comic-collection-mbcwwcshkd.now.sh/)
 
 ### Comic Collection is a simple way to keep inventory of your comic book collection.
 
