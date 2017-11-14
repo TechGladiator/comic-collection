@@ -10,7 +10,7 @@ const config = require('./config');
 const router = require('./routes');
 
 // Connect to MongoDB and create/use database as configured
-mongoose.connection.openUri(`mongodb://${config.db.host}/${config.db.dbName}`);
+mongoose.connection.openUri(config.mongo_url);
 
 // Import all models
 require('./models/file.model.js');
