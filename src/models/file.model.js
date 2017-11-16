@@ -1,6 +1,7 @@
 // Load mongoose package
 const mongoose = require('mongoose');
 
+// Create Database Schema
 const FileSchema = new mongoose.Schema({
   series: String,
   volume: String,
