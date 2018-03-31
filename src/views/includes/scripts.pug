@@ -1,7 +1,7 @@
 // Handlebars data list template
 script#list-template(type="text/x-handlebars-template").
   <div class="edit-mode invisible">
-    <button class="btn btn-primary add-comic"><a href="/deleted">Recently Deleted</a></button>
+    <button class="btn btn-sm btn-danger deleted"><a href="/deleted">Recently Deleted</a></button>
   </div>
   <div class="row">
     {{#each files}}
