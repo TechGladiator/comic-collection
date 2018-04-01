@@ -13,6 +13,15 @@ body {
   color: #fff;
 }
 
+a {
+  color: inherit;
+}
+
+a:hover {
+  color: inherit;
+  text-decoration: none;
+}
+
 ::-webkit-scrollbar {
   width: .5em;
 }
@@ -79,6 +88,11 @@ body {
 
 .btn-block {
   margin-top: .5rem;
+}
+
+.deleted {
+  margin-bottom: 0.625em;
+  padding: 0.250em 1em;
 }
 
 
