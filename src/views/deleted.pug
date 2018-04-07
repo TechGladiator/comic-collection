@@ -3,6 +3,7 @@ extends layout
 block main
   // List Container
   .album
-    div
-      a(href="/") Back
+    .container.edit-mode.invisible
+      button.btn.btn-sm.btn-danger.deleted
+        a(href="/") Back
     .container#deleted-container
