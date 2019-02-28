@@ -1,11 +1,12 @@
 // src/server.js
+
+// Load required packages
 const path = require('path');
 const bodyParser = require('body-parser');
-
-// Load mongoose package
 const mongoose = require('mongoose');
-
 const express = require('express');
+
+// Load app configuration and routes
 const config = require('./config');
 const router = require('./routes');
 
@@ -15,7 +16,10 @@ mongoose.connection.openUri(config.mongo_url);
 // Import all models
 require('./models/file.model.js');
 
+// Setup Express
 const app = express();
+
+// Set public path
 const publicPath = path.resolve(__dirname, '../public');
 app.use(express.static(publicPath));
 app.use(bodyParser.json());
